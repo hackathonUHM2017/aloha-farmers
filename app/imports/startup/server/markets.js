@@ -2,7 +2,7 @@ import { Markets } from '../../api/markets/markets.js';
 import { _ } from 'meteor/underscore';
 
 /**
- * A list of Contacts to pre-fill the Collection.
+ * A list of Markets to pre-fill the Collection.
  * @type {*[]}
  */
 
@@ -59,7 +59,8 @@ const marketSeeds = [
  */
 
 if (Markets.find().count() === 0) {
-  _.each(marketSeeds, function seedMarkets(stuff) {
-    Markets.insert(stuff);
+  _.each(marketSeeds, function seedMarkets(markets) {
+    Markets.insert(markets);
   });
-};
+}
+

@@ -3,6 +3,9 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 export const Markets = new Mongo.Collection('Markets');
 
+/**
+ * Create the schema for Stuff
+ */
 export const MarketsSchema = new SimpleSchema({
   name: {
     label: 'Name',
