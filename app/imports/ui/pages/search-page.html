@@ -3,6 +3,7 @@
 
     <head>
       <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+      <script src="search-page.jss"></script>
       <script language="javascript" type="text/javascript">
 
         var map;
@@ -23,6 +24,7 @@
         function FindLocaiton() {
           geocoder = new google.maps.Geocoder();
           InitializeMap();
+
           var address = document.getElementById("addressinput").value;
           geocoder.geocode({ 'address': address }, function (results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
@@ -49,6 +51,7 @@
       </script>
     </head>
     <body>
+
     <!--
     <h2>Gecoding Demo JavaScript: </h2>
     <table>
@@ -79,8 +82,43 @@
       </tr>
     </table>
     </div>
-    <div id ="map" style="height: 500px" >
-    </div>
+    <div id ="map" style="height: 500px"></div>
     </body>
+  </div>
+
+  <div class="container">
+    {{#if Template.subscriptionsReady}}
+    <table style="margin-top: 16px" class="ui celled table">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Days</th>
+        <th>Opening Time</th>
+        <th>Closing Time</th>
+        <th>Island</th>
+        <th>City</th>
+        <th>Address</th>
+      </tr>
+      </thead>
+
+      <tbody>
+
+      {{#each market in marketsList}}
+      <tr>
+        <td>{{market.name}}</td>
+        <td>{{market.days}}</td>
+        <td>{{market.start}}</td>
+        <td>{{market.finish}}</td>
+        <td>{{market.island}}</td>
+        <td>{{market.city}}</td>
+        <td>{{market.address}}</td>
+      </tr>
+      {{/each}}
+      </tbody>
+    </table>
+    {{else}}
+    {{> Loading}}
+    {{/if}}
+
   </div>
 </template>
