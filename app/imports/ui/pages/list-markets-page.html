@@ -5,17 +5,29 @@
           <thead>
           <tr>
             <th>Name</th>
-            <th>Quantity</th>
-            <th>Edit</th>
+            <th>Days</th>
+            <th>Start</th>
+            <th>Finish</th>
+            <th>Island</th>
+            <th>City</th>
+            <th>Address</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
           </tr>
           </thead>
 
           <tbody>
-          {{#each stuff in stuffList}}
+          {{#each market in marketsList}}
             <tr>
-              <td>{{stuff.name}}</td>
-              <td>{{stuff.quantity}}</td>
-              <td><a href="{{pathFor 'Edit_Stuff_Page' _id=stuff._id}}">Edit</a></td>
+              <td>{{market.name}}</td>
+              <td>{{market.days}}</td>
+              <td>{{market.start}}</td>
+              <td>{{market.finish}}</td>
+              <td>{{market.island}}</td>
+              <td>{{market.city}}</td>
+              <td>{{market.address}}</td>
+              <td>{{market.latitude}}</td>
+              <td>{{market.longitude}}</td>
             </tr>
           {{/each}}
           </tbody>
@@ -25,3 +37,4 @@
       {{/if}}
     </div>
 </template>
+
