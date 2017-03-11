@@ -1,9 +1,10 @@
 <template name="Header">
-  <img style="max-height: 300px" class="ui fluid image" src="/images/home-page-logo.png">
-  <div style="margin: 0px; border-radius: 0px; background-color: #ffffff" class="ui borderless menu">
-  <div class="ui container">
-    <a style="color:black" class="item aloha" href="{{pathFor 'Home_Page'}}"><h1>Aloha Farmers</h1></a>
-    <a style="color:black" class="{{ isActiveRoute 'Add_Stuff_Page'}} item" href="{{ pathFor 'Search_Page' }}"><h3>Search</h3></a>
+  <a style="color:black" class="item aloha" href="{{pathFor 'Home_Page'}}">
+    <img style="max-height: 300px" class="ui fluid image" src="/images/home-page-logo.png">
+  </a>
+  <div style="margin: 0px; border-radius: 0px; background-color: #ffffff" class="ui inverted center menu">
+    <div class="ui centered grid container">
+      <a style="color:black" class="{{ isActiveRoute 'Add_Stuff_Page'}} item" href="{{ pathFor 'Search_Page' }}"><h3>Search</h3></a>
     </div>
   </div>
 </template>
