@@ -8,7 +8,7 @@ import { _ } from 'meteor/underscore';
 const marketSeeds = [
   {
     name: 'Waikoloa Village Farmers Market',
-    days: ['Saturday', 'Sunday'],
+    days: ['Saturday'],
     start: '7:15 AM',
     finish: '10:00 AM',
     island: 'Hawaii',
