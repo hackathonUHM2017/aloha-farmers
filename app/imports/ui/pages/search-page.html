@@ -67,16 +67,10 @@
     </table>
     -->
     <div style="margin-top: 16px; margin-bottom: 16px;" class="ui grid centered container search page">
-      <table>
-        <tr>
-          <td>
-            <input id="addressinput" type="text" style="width: 447px"/>
-          </td>
-          <td>
-            <input id="Button1" type="button" value="Find" onclick="return Button1_onclick()"/></td>
-        </tr>
-      </table>
-      <h4>Enter an Address, Zip Code, or City to find Farmers Markets near you</h4>
+      <div class="ui action input" style="width:600px; padding:1em">
+        <input type="text" placeholder="Enter an Address, Zip Code, or City to find Farmers Markets near you">
+        <button class="ui red button" onclick="return Button1_onclick()">Search</button>
+      </div>
     </div>
     <div id="map" style="height: 500px">
     </div>

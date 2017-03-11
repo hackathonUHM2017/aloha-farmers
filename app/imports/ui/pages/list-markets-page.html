@@ -1,34 +1,25 @@
 <template name="List_Markets_Page">
-  <div class="ui container">
-
+  <div class="ui container" style="padding:40px">
     {{#if Template.subscriptionsReady}}
-    <table style="margin-top: 20px" class="ui celled table">
-      <thead>
-      <tr>
-        <th>Name</th>
-        <th>Days</th>
-        <th>Start</th>
-        <th>Finish</th>
-        <th>Island</th>
-        <th>City</th>
-        <th>Address</th>
-      </tr>
-      </thead>
-
-      <tbody>
+    <div class="ui cards" style="margin-left:60px">
       {{#each market in marketsList}}
-      <tr>
-        <td>{{market.name}}</td>
-        <td>{{market.days}}</td>
-        <td>{{market.start}}</td>
-        <td>{{market.finish}}</td>
-        <td>{{market.island}}</td>
-        <td>{{market.city}}</td>
-        <td>{{market.address}}</td>
-      </tr>
+      <div class="ui card">
+        <div class="content">
+          <div class="header">{{market.name}}</div>
+          <div class="description">
+            <p>Days: {{market.days}}</p>
+            <p>Time: {{market.start}} - {{market.finish}}</p>
+            <p>Island: {{market.island}}</p>
+            <p>City: {{market.city}}</p>
+            <p>Address: {{market.address}}</p>
+          </div>
+        </div>
+        <div class="ui bottom attached button">
+          Reviews
+        </div>
+      </div>
       {{/each}}
-      </tbody>
-    </table>
+    </div>
     {{else}}
     {{> Loading}}
     {{/if}}
