@@ -1,13 +1,44 @@
 <template name="Header">
   <a style="color:black" class="item aloha" href="{{pathFor 'Home_Page'}}">
-    <img style="max-height: 300px" class="ui fluid image" src="/images/home-page-logo.png">
+    <img style="max-height: 400px" class="ui centered image" src="/images/home-page-logo.png">
   </a>
-  <div style="margin: 0px; border-radius: 0; box-shadow: none; border: none; background-color: #ffffff" class="ui borderless menu">
+  <div style="margin-top: -50px; margin-bottom: -10px; border-radius: 0; box-shadow: none; border: none; background-color: #ffffff"
+       class="ui borderless menu">
     <div class="ui centered grid container">
-      <a style="color:black" class="{{ isActiveRoute 'Search_Page'}} item" href="{{ pathFor 'Search_Page' }}"><h3>Nearby</h3></a>
-      <a style="color:black" class="{{ isActiveRoute 'List_Markets_Page'}} item" href="{{ pathFor 'List_Markets_Page' }}"><h3>All Markets</h3></a>
-      <a style="color:black" class="{{ isActiveRoute 'Find_By_City'}} item" href="{{ pathFor 'Find_By_City' }}"><h3>Find By City</h3></a>
-      <a style="color:black" class="{{ isActiveRoute 'Find_By_Day'}} item" href="{{ pathFor 'Find_By_Day' }}"><h3>Find By Day</h3></a>
+
+      <a style="color:black" class="{{ isActiveRoute 'List_Markets_Page'}} item"
+         href="{{ pathFor 'List_Markets_Page' }}"><h3>All Markets</h3></a>
+
+      <a style="color:black" class="{{ isActiveRoute 'Search_Page'}} item" href="{{ pathFor 'Search_Page' }}"><h3>
+        Markets Nearby</h3></a>
+
+      <div class="ui dropdown item">
+        <a style="color:black" class="{{ isActiveRoute 'Find_By_City'}} item"><h3>
+          Find
+          by City</h3></a>
+        <div class="menu">
+          <div class="item"><p>Honolulu</p></div>
+          <div class="item"><p>Ewa Beach</p></div>
+          <div class="item"><p>Haleiwa</p></div>
+          <div class="item"><p>Waipahu</p></div>
+          <div class="item"><p>Waianae</p></div>
+        </div>
+      </div>
+
+      <div class="ui dropdown item">
+      <a style="color:black" class="{{ isActiveRoute 'Find_By_Day'}} item"><h3>Find
+        by Day</h3></a>
+        <div class="menu">
+          <div class="item"><p>Sunday</p></div>
+          <div class="item"><p>Monday</p></div>
+          <div class="item"><p>Tuesday</p></div>
+          <div class="item"><p>Wednesday</p></div>
+          <div class="item"><p>Thursday</p></div>
+          <div class="item"><p>Friday</p></div>
+          <div class="item"><p>Saturday</p></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </template>

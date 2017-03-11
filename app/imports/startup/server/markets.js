@@ -29,7 +29,7 @@ const marketSeeds = [
     longitude: '-157.99936985699975',
   },
   {
-    name: 'The Mauis Fresh Produce Farmers Market at Queen Kaahumanu Shopping Center',
+    name: 'The Mauis Fresh Produce Farmers Market',
     days: ['Tuesday'],
     start: '7:00 AM',
     finish: '4:00 PM',
@@ -73,7 +73,7 @@ const marketSeeds = [
     longitude: '-157.87050896699975',
   },
   {
-    name: 'Hawaii Kai Farmers Market at Kaiser High School',
+    name: 'Hawaii Kai Farmers Market',
     days: ['Saturday'],
     start: '9:00 AM',
     finish: '1:00 PM',
@@ -84,7 +84,7 @@ const marketSeeds = [
     longitude: '-157.69769887499973',
   },
   {
-    name: 'Honolulu Farmers Market at Neal S Blaisdell Center',
+    name: 'Honolulu Farmers Market',
     days: ['Wednesday'],
     start: '4:00 PM',
     finish: '7:00 PM',
