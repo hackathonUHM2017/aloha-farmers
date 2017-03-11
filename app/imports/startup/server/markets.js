@@ -15,7 +15,8 @@ const marketSeeds = [
     Island: 'Hawaii',
     City: 'Waikoloa',
     Address: '68-3625 Paniolo Ave',
-    Location: '19.942734768000435, -155.79099041899974',
+    Latitude: '19.942734768000435',
+    Longitude: '-155.79099041899974',
   },
   {
     Name: 'Dole Cannery',
@@ -25,7 +26,8 @@ const marketSeeds = [
     Island: 'Oahu',
     City: 'Honolulu',
     Address: '650 Iwilei Rd',
-    Location: '21.316240109000432, -157.87050896699975',
+    Latitude: '21.316240109000432',
+    Longitude: '-157.87050896699975',
   },
   {
     Name: 'Makawao Farmers Market',
@@ -35,7 +37,8 @@ const marketSeeds = [
     Island: 'Maui',
     City: 'Makawao',
     Address: '200 Olinda Rd',
-    Location: '20.849390600000447, -156.30839892799975',
+    Latitude: '20.849390600000447',
+    Longitude: '-156.30839892799975',
   },
   {
     Name: 'Molokai Saturday Market',
@@ -45,7 +48,8 @@ const marketSeeds = [
     Island: 'Molokai',
     City: 'Kaunakakai',
     Address: '40 Ala Malama St',
-    Location: '21.09017112200047, -157.02199661599974',
+    Latitude: '21.09017112200047',
+    Longitude: '-157.02199661599974',
   },
 ];
 

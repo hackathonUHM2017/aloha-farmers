@@ -46,8 +46,14 @@ export const MarketsSchema = new SimpleSchema({
     optional: false,
     max: 200,
   },
-  location: {
-    label: 'Location',
+  latitude: {
+    label: 'Latitude',
+    type: String,
+    optional: false,
+    max: 200,
+  },
+  longitude: {
+    label: 'Longitude',
     type: String,
     optional: false,
     max: 200,
