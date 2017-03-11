@@ -1,12 +1,13 @@
 <template name="Header">
-    <div class="ui top fixed borderless inverted menu">
+  <img style="max-height: 200px" class="ui fluid image" src="/images/placeholder.jpg">
+  <div style="margin: 0px; border-radius: 0px" class="ui borderless inverted menu">
   <div class="ui container">
       <a class="item" href="{{pathFor 'Home_Page'}}"><h1>Aloha Farmers Test</h1></a>
       {{#if currentUser}}
         <a class="{{ isActiveRoute 'Add_Stuff_Page'}} item" href="{{ pathFor 'Add_Stuff_Page' }}">Add Stuff Here</a>
         <a class="{{ isActiveRoute 'List_Stuff_Page'}} item" href="{{ pathFor 'List_Stuff_Page' }}">List Stuff</a>
       {{/if}}
-      <a href="#" class="right aligned item">{{> loginButtons align="right"}} </a>
+      <a href="#" class="item">{{> loginButtons}} </a>
     </div>
   </div>
 </template>
