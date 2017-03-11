@@ -1,41 +1,88 @@
 <template name="Search_Page">
   <div class="ui container">
+
     <head>
+      <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+      <script language="javascript" type="text/javascript">
 
-      <script type="text/javascript" >
+        var map;
+        var geocoder;
+        function InitializeMap() {
 
-        window.onload = getLocation;
-
-        var geo = navigator.geolocation;     /*     Here we will check if the browser supports the Geolocation API; if exists, then we will display the location     */
-
-        function getLocation() {
-          if( geo ) {
-            geo.getCurrentPosition( displayLocation );
-          }
-          else  { alert( "Oops, Geolocation API is not supported");
-          }
+          var latlng = new google.maps.LatLng(21.100, 202.344);
+          var myOptions =
+              {
+                zoom: 8,
+                center: latlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                disableDefaultUI: true
+              };
+          map = new google.maps.Map(document.getElementById("map"), myOptions);
         }
 
-        /*     This function displays the latitude and longitude when the browser has a location.     */
+        function FindLocaiton() {
+          geocoder = new google.maps.Geocoder();
+          InitializeMap();
 
-        function displayLocation( position ) {
-          var latitude = position.coords.latitude;
-          var longitude = position.coords.longitude;
-          var div = document.getElementById( 'location' );
-          div.innerHTML = "You are at Latitude: " + latitude + ", Longitude: " + longitude;
+          var address = document.getElementById("addressinput").value;
+          geocoder.geocode({ 'address': address }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+              map.setCenter(results[0].geometry.location);
+              var marker = new google.maps.Marker({
+                map: map,
+                position: results[0].geometry.location
+              });
+
+            }
+            else {
+              alert("Geocode was not successful for the following reason: " + status);
+            }
+          });
+
         }
+
+
+        function Button1_onclick() {
+          FindLocaiton();
+        }
+
+        window.onload = InitializeMap;
+
       </script>
-
     </head>
-
     <body>
-    <div class="container" >
-      <div id="location" >
-        You are at Latitude: _________, Longitude: _________
-      </div>
+    <!--
+    <h2>Gecoding Demo JavaScript: </h2>
+    <table>
+      <tr>
+        <td>
+          <input id="addressinput" type="text" style="width: 447px" />
+        </td>
+        <td>
+          <input id="Button1" type="button" value="Find" onclick="return Button1_onclick()" /></td>
+      </tr>
+      <tr>
+        <td colspan ="2">
+          <div id ="map" style="height: 253px" >
+          </div>
+        </td>
+      </tr>
+    </table>
+    -->
+    <div style="margin-top: 16px; margin-bottom: 16px;" class="ui grid centered container search page">
+    <h2>Enter an Address, Zip Code, or City to find Farmers Markets near you</h2>
+    <table>
+      <tr>
+        <td>
+          <input id="addressinput" type="text" style="width: 447px" />
+        </td>
+        <td>
+          <input id="Button1" type="button" value="Find" onclick="return Button1_onclick()" /></td>
+      </tr>
+    </table>
+    </div>
+    <div id ="map" style="height: 500px" >
     </div>
     </body>
-
-
   </div>
 </template>
