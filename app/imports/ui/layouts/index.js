@@ -4,6 +4,8 @@ import './app-not-found.html';
 import './footer.html';
 import './header.html';
 import './header.js';
+import './search.html';
+import './search.js';
 import './if-logged-in.html';
 import './if-logged-in.js';
 import './loading.html';
