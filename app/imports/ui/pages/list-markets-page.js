@@ -11,3 +11,4 @@ Template.List_Markets_Page.helpers({
     return Markets.find();
   },
 });
+  
