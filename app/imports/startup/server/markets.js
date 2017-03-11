@@ -8,7 +8,7 @@ import { _ } from 'meteor/underscore';
 const marketSeeds = [
   {
     name: 'Waikoloa Village Farmers Market',
-    days: 'Saturday',
+    days: ['Saturday', 'Sunday'],
     start: '7:15 AM',
     finish: '10:00 AM',
     island: 'Hawaii',
@@ -19,7 +19,7 @@ const marketSeeds = [
   },
   {
     name: 'Dole Cannery',
-    days: 'Friday',
+    days: ['Friday'],
     start: '10:00 AM',
     finish: '5:00 PM',
     island: 'Oahu',
@@ -30,7 +30,7 @@ const marketSeeds = [
   },
   {
     name: 'Makawao Farmers Market',
-    days: 'Wednesday',
+    days: ['Wednesday'],
     start: '9:30 AM',
     finish: '2:00 PM',
     island: 'Maui',
@@ -41,7 +41,7 @@ const marketSeeds = [
   },
   {
     name: 'Molokai Saturday Market',
-    days: 'Saturday',
+    days: ['Saturday'],
     start: '7:00 AM',
     finish: '12:00 PM',
     island: 'Molokai',

@@ -14,3 +14,9 @@ import './list-markets-page.js';
 
 import './list-stuff-page.html';
 import './list-stuff-page.js';
+
+import './find-by-city.html';
+import './find-by-city.js';
+
+import './find-by-day.html';
+import './find-by-day.js';
