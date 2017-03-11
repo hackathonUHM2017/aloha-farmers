@@ -15,6 +15,13 @@ FlowRouter.route('/list', {
   },
 });
 
+FlowRouter.route('/list-markets', {
+  name: 'List_Markets_Page',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'List_Markets_Page' });
+  },
+});
+
 FlowRouter.route('/search', {
   name: 'Search_Page',
   action() {

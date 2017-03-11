@@ -1,0 +1,43 @@
+<template name="List_Markets_Page">
+  <div class="ui container">
+
+    <h1>Test</h1>
+
+    {{#if Template.subscriptionsReady}}
+    <table style="margin-top: 20px" class="ui celled table">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Days</th>
+        <th>Start</th>
+        <th>Finish</th>
+        <th>Island</th>
+        <th>City</th>
+        <th>Address</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      {{#each market in marketsList}}
+      <tr>
+        <td>{{market.name}}</td>
+        <td>{{market.days}}</td>
+        <td>{{market.start}}</td>
+        <td>{{market.finish}}</td>
+        <td>{{market.island}}</td>
+        <td>{{market.city}}</td>
+        <td>{{market.address}}</td>
+        <td>{{market.latitude}}</td>
+        <td>{{market.longitude}}</td>
+      </tr>
+      {{/each}}
+      </tbody>
+    </table>
+    {{else}}
+    {{> Loading}}
+    {{/if}}
+
+  </div>
+</template>
