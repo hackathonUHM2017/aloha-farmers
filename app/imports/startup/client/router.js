@@ -29,6 +29,20 @@ FlowRouter.route('/search', {
   },
 });
 
+FlowRouter.route('/find-by-city', {
+  name: 'Find_By_City',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'Find_By_City' });
+  },
+});
+
+FlowRouter.route('/find-by-day', {
+  name: 'Find_By_Day',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'Find_By_Day' });
+  },
+});
+
 FlowRouter.route('/add', {
   name: 'Add_Stuff_Page',
   action() {
