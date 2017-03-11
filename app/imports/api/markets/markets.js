@@ -17,7 +17,7 @@ export const MarketsSchema = new SimpleSchema({
   },
   days: {
     label: 'Days',
-    type: String,
+    type: [String],
     optional: false,
     max: 200,
   },
