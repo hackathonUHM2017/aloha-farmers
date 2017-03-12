@@ -266,33 +266,24 @@
               latitude = results[0].geometry.location.lat();
               longitude = results[0].geometry.location.lng();
 
-              //loc[0]=results[0].geometry.location.lat();
-              //loc[1]=results[0].geometry.location.lng();
-
-              //alert(loc);
-              console.log(latitude + " right af");
-              console.log(longitude + "right af lng");
-
-
               map.setCenter(results[0].geometry.location);
               var marker = new google.maps.Marker({
                 map: map,
                 position: results[0].geometry.location
               });
+
+              var circle = new google.maps.Circle({
+                map: map,
+                radius: 11000,    // 10 miles in metres
+                fillColor: '#AA0000'
+              });
+              circle.bindTo('center', marker, 'position');
+
               for (i = 0; i < marketSeeds.length; i++) {
                 let latComp = _.pluck(marketSeeds, 'latitude');
                 let lngComp = _.pluck(marketSeeds, 'longitude');
                 distance.push(getDistanceFromLatLonInKm(latitude, longitude, latComp[i], lngComp[i]))
-                /*const closeMarkets = _.filter(marketSeeds, function (entry) {
-                  return  (getDistanceFromLatLonInKm(latitude, longitude, entry.latitude, entry.longitude) < 11) === true;
-
-                });*/
-
-                /*(const sundaySeeds = _.filter(marketSeeds, function (entry) {
-                  return _.contains(entry.days, 'Sunday') === true;
-                });*/
-
-              }
+               }
 
               for (i = 0; i < distance.length; i++) {
                 if (distance[i] <= 11) {
@@ -333,6 +324,8 @@
         function deg2rad(deg) {
           return deg * (Math.PI/180)
         }
+
+        //document.getElementById("nameMarket").innerHTML = marketSeeds[0].name;
 
       </script>
     </head>
