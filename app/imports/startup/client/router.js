@@ -22,6 +22,13 @@ FlowRouter.route('/list-markets', {
   },
 });
 
+FlowRouter.route('/reviews', {
+  name: 'Reviews_Page',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'Reviews_Page' });
+  },
+});
+
 FlowRouter.route('/search', {
   name: 'Search_Page',
   action() {
