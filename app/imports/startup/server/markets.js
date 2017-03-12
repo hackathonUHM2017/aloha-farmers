@@ -1,4 +1,5 @@
 import { Markets } from '../../api/markets/markets.js';
+import { Sunday } from '../../api/markets/markets.js';
 import { _ } from 'meteor/underscore';
 
 /**
@@ -228,6 +229,10 @@ const marketSeeds = [
   },
 ];
 
+const sundaySeeds = _.filter(marketSeeds, function (entry) {
+  return _.contains(entry.days, 'Sunday') === true;
+});
+
 /**
  * Initialize the Market collection if empty with seed data.
  */
@@ -237,3 +242,10 @@ if (Markets.find().count() === 0) {
     Markets.insert(stuff);
   });
 }
+
+if (Sunday.find().count() === 0) {
+  _.each(sundaySeeds, function seedSunday(stuff) {
+    Sunday.insert(stuff);
+  });
+}
+

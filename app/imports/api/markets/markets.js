@@ -4,6 +4,13 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 /* eslint-disable object-shorthand */
 
 export const Markets = new Mongo.Collection('Markets');
+export const Sunday = new Mongo.Collection('Sunday');
+export const Monday = new Mongo.Collection('Monday');
+export const Tuesday = new Mongo.Collection('Tuesday');
+export const Wednesday = new Mongo.Collection('Wednesday');
+export const Thursday = new Mongo.Collection('Thursday');
+export const Friday = new Mongo.Collection('Friday');
+export const Saturday = new Mongo.Collection('Saturday');
 
 /**
  * Create the schema for Markets
@@ -66,3 +73,10 @@ export const MarketsSchema = new SimpleSchema({
 });
 
 Markets.attachSchema(MarketsSchema);
+Sunday.attachSchema(MarketsSchema);
+Monday.attachSchema(MarketsSchema);
+Tuesday.attachSchema(MarketsSchema);
+Wednesday.attachSchema(MarketsSchema);
+Thursday.attachSchema(MarketsSchema);
+Friday.attachSchema(MarketsSchema);
+Saturday.attachSchema(MarketsSchema);

@@ -7,6 +7,9 @@
 
         var map;
         var geocoder;
+
+        window.onload = InitializeMap;
+
         function InitializeMap() {
 
           var latlng = new google.maps.LatLng(21.100, 202.344);
@@ -43,7 +46,7 @@
           FindLocaiton();
         }
 
-        window.onload = InitializeMap;
+        //window.onload = InitializeMap;
 
       </script>
     </head>
@@ -68,8 +71,8 @@
     -->
     <div style="margin-top: 16px; margin-bottom: 16px;" class="ui grid centered container search page">
       <div class="ui action input" style="width:600px; padding:1em">
-        <input type="text" placeholder="Enter an Address, Zip Code, or City to find Farmers Markets near you">
-        <button class="ui red button" onclick="return Button1_onclick()">Search</button>
+        <input id="addressinput" type="text" placeholder="Enter an Address, Zip Code, or City to find Farmers Markets near you">
+        <input id="Button1" type="button" value="Search" class="ui red button" onclick="return Button1_onclick()"/>
       </div>
     </div>
     <div id="map" style="height: 500px">
