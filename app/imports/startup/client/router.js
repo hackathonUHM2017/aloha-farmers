@@ -43,17 +43,52 @@ FlowRouter.route('/find-by-day', {
   },
 });
 
-FlowRouter.route('/add', {
-  name: 'Add_Stuff_Page',
+FlowRouter.route('/find-by-day-sunday', {
+  name: 'Find_By_Day_Sunday',
   action() {
-    BlazeLayout.render('App_Body', { main: 'Add_Stuff_Page' });
+    BlazeLayout.render('App_Body', { main: 'Find_By_Day_Sunday' });
   },
 });
 
-FlowRouter.route('/stuff/:_id', {
-  name: 'Edit_Stuff_Page',
+FlowRouter.route('/find-by-day-monday', {
+  name: 'Find_By_Day_Monday',
   action() {
-    BlazeLayout.render('App_Body', { main: 'Edit_Stuff_Page' });
+    BlazeLayout.render('App_Body', { main: 'Find_By_Day_Monday' });
+  },
+});
+
+FlowRouter.route('/find-by-day-tuesday', {
+  name: 'Find_By_Day_Tuesday',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'Find_By_Day_Tuesday' });
+  },
+});
+
+FlowRouter.route('/find-by-day-wednesday', {
+  name: 'Find_By_Day_Wednesday',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'Find_By_Day_Wednesday' });
+  },
+});
+
+FlowRouter.route('/find-by-day-thursday', {
+  name: 'Find_By_Day_Thursday',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'Find_By_Day_Thursday' });
+  },
+});
+
+FlowRouter.route('/find-by-day-friday', {
+  name: 'Find_By_Day_Friday',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'Find_By_Day_Friday' });
+  },
+});
+
+FlowRouter.route('/find-by-day-saturday', {
+  name: 'Find_By_Day_Saturday',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'Find_By_Day_Saturday' });
   },
 });
 
