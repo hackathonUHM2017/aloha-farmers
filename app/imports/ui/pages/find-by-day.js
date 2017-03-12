@@ -1,16 +1,13 @@
 import { Template } from 'meteor/templating';
-import { Markets } from '../../api/markets/markets.js';
-import { _ } from 'meteor/underscore';
-
-const dayMarkets = _.filter(Markets, Markets[days]["Saturday"]);
+import { Sunday } from '../../api/markets/markets.js';
 
 Template.Find_By_Day.helpers({
 
   /**
-   * @returns {*} All of the Stuff documents.
+   * @returns {*} All of the Markets documents.
    */
 
-  dayMarketsList() {
-    return dayMarkets.find();
+  findByDay() {
+    return Sunday.find();
   },
 });
