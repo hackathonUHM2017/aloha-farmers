@@ -1,7 +1,31 @@
 <template name="Home_Page">
   <div style="margin-top: 20px" class="ui middle aligned centered grid text container">
 
-    <img style="width: 650px; height: 350px; margin-bottom: 20px" class="ui fluid image" src="/images/fMarket.jpg">
+    <div class="owl-carousel">
+      <div><img style="width: 600px; height: 350px; margin-bottom: 20px" class="ui centered image"
+                src="/images/fMarket.jpg"></div>
+      <div><img style="width: 600px; height: 350px; margin-bottom: 20px" class="ui centered image"
+                src="/images/parrots-beak.jpg"></div>
+      <div><img style="width: 600px; height: 350px; margin-bottom: 20px" class="ui centered image"
+                src="/images/cucumber.jpg"></div>
+      <div><img style="width: 600px; height: 350px; margin-bottom: 20px" class="ui centered image"
+                src="/images/dragon.jpg"></div>
+      <div><img style="width: 600px; height: 350px; margin-bottom: 20px" class="ui centered image"
+                src="/images/hirabara-farm.jpg"></div>
+      <div><img style="width: 600px; height: 350px; margin-bottom: 20px" class="ui centered image"
+                src="/images/beats.jpg"></div>
+    </div>
 
   </div>
+
+  <script>
+    $(".owl-carousel").owlCarousel({
+      items: 1,
+      autoplay: true,
+      autoPlaySpeed: 5000,
+      loop: true,
+      autoplayHoverPause: true,
+      dots: false,
+    });
+  </script>
 </template>

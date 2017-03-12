@@ -103,7 +103,7 @@ const marketSeeds = [
     island: 'Oahu',
     city: 'Honolulu',
     address: '1299 Kaumualii St',
-    latitude: '21.304850435000446,',
+    latitude: '21.304850435000446',
     longitude: '-157.85774940299973',
   },
   {
