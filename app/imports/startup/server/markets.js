@@ -1,5 +1,11 @@
 import { Markets } from '../../api/markets/markets.js';
 import { Sunday } from '../../api/markets/markets.js';
+import { Monday } from '../../api/markets/markets.js';
+import { Tuesday } from '../../api/markets/markets.js';
+import { Wednesday } from '../../api/markets/markets.js';
+import { Thursday } from '../../api/markets/markets.js';
+import { Friday } from '../../api/markets/markets.js';
+import { Saturday } from '../../api/markets/markets.js';
 import { _ } from 'meteor/underscore';
 
 /**
@@ -7,6 +13,61 @@ import { _ } from 'meteor/underscore';
  * @type {*[]}
  */
 const marketSeeds = [
+  {
+    name: 'Ala Moana Farmers Market',
+    days: ['Saturday'],
+    start: '9:00 AM',
+    finish: '1:00 PM',
+    island: 'Oahu',
+    city: 'Honolulu',
+    address: '1450 Ala Moana Blvd.',
+    latitude: '21.28928015800045',
+    longitude: '-157.84219969299974',
+  },
+  {
+    name: 'Banyan Court Mall (Peoples Open Market)',
+    days: ['Saturday'],
+    start: '6:15 AM',
+    finish: '7:30 AM',
+    island: 'Oahu',
+    city: 'Honolulu',
+    address: '800 North King Street',
+    latitude: '21.302690421000477',
+    longitude: '-157.85208973299973',
+  },
+  {
+    name: 'Benjamin Parker Elementary School',
+    days: ['Saturday'],
+    start: '8:00 AM',
+    finish: '2:30 PM',
+    island: 'Oahu',
+    city: 'Kaneohe',
+    address: '45-259 Waikalua Rd.',
+    latitude: '21.413500808000435',
+    longitude: '157.79883930699975',
+  },
+  {
+    name: 'City Hall Parking Lot Deck (Peoples Open Market)',
+    days: ['Monday'],
+    start: '11:45 AM',
+    finish: '12:30 PM',
+    island: 'Oahu',
+    city: 'Honolulu',
+    address: 'Alapai & Beretania Street',
+    latitude: '21.304850435000446',
+    longitude: '-157.85774940299973',
+  },
+  {
+    name: 'Fort Street near Wilcox Park',
+    days: ['Tuesday', 'Friday'],
+    start: '8:00 AM',
+    finish: '2:00 PM',
+    island: 'Oahu',
+    city: 'Honolulu',
+    address: 'In front of Macys',
+    latitude: '21.304850435000446',
+    longitude: '-157.85774940299973',
+  },
   {
     name: 'Waikoloa Village Farmers Market',
     days: ['Saturday'],
@@ -232,6 +293,24 @@ const marketSeeds = [
 const sundaySeeds = _.filter(marketSeeds, function (entry) {
   return _.contains(entry.days, 'Sunday') === true;
 });
+const mondaySeeds = _.filter(marketSeeds, function (entry) {
+  return _.contains(entry.days, 'Monday') === true;
+});
+const tuesdaySeeds = _.filter(marketSeeds, function (entry) {
+  return _.contains(entry.days, 'Tuesday') === true;
+});
+const wednesdaySeeds = _.filter(marketSeeds, function (entry) {
+  return _.contains(entry.days, 'Wednesday') === true;
+});
+const thursdaySeeds = _.filter(marketSeeds, function (entry) {
+  return _.contains(entry.days, 'Thursday') === true;
+});
+const fridaySeeds = _.filter(marketSeeds, function (entry) {
+  return _.contains(entry.days, 'Friday') === true;
+});
+const saturdaySeeds = _.filter(marketSeeds, function (entry) {
+  return _.contains(entry.days, 'Saturday') === true;
+});
 
 /**
  * Initialize the Market collection if empty with seed data.
@@ -249,3 +328,38 @@ if (Sunday.find().count() === 0) {
   });
 }
 
+if (Monday.find().count() === 0) {
+  _.each(mondaySeeds, function seedMonday(stuff) {
+    Monday.insert(stuff);
+  });
+}
+
+if (Tuesday.find().count() === 0) {
+  _.each(tuesdaySeeds, function seedTuesday(stuff) {
+    Tuesday.insert(stuff);
+  });
+}
+
+if (Wednesday.find().count() === 0) {
+  _.each(wednesdaySeeds, function seedWednesday(stuff) {
+    Wednesday.insert(stuff);
+  });
+}
+
+if (Thursday.find().count() === 0) {
+  _.each(thursdaySeeds, function seedThursday(stuff) {
+    Thursday.insert(stuff);
+  });
+}
+
+if (Friday.find().count() === 0) {
+  _.each(fridaySeeds, function seedFriday(stuff) {
+    Friday.insert(stuff);
+  });
+}
+
+if (Saturday.find().count() === 0) {
+  _.each(saturdaySeeds, function seedSaturday(stuff) {
+    Saturday.insert(stuff);
+  });
+}
