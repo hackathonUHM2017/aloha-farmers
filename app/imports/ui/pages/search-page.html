@@ -269,7 +269,8 @@
               map.setCenter(results[0].geometry.location);
               var markerPrime = new google.maps.Marker({
                 map: map,
-                position: results[0].geometry.location
+                position: results[0].geometry.location,
+                icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
               });
 
               var circle = new google.maps.Circle({
