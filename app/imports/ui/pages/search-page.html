@@ -4,9 +4,238 @@
     <head>
       <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
       <script language="javascript" type="text/javascript">
+        /*import { _ } from 'meteor/underscore';*/
 
         var map;
         var geocoder;
+        var latitude;
+        var longitude;
+
+        const marketSeeds = [
+          {
+            name: 'Waikoloa Village Farmers Market',
+            days: ['Saturday'],
+            start: '7:15 AM',
+            finish: '10:00 AM',
+            island: 'Hawaii',
+            city: 'Waikoloa',
+            address: '68-3625 Paniolo Ave',
+            latitude: '19.942734768000435',
+            longitude: '-155.79099041899974',
+          },
+          {
+            name: 'Waipahu District Park',
+            days: ['Tuesday'],
+            start: '8:15 AM',
+            finish: '9:15 PM',
+            island: 'Oahu',
+            city: 'Waipahu',
+            address: '94-230 Paiwa Street',
+            latitude: '21.38803075800047',
+            longitude: '-157.99936985699975',
+          },
+          {
+            name: 'The Mauis Fresh Produce Farmers Market',
+            days: ['Tuesday'],
+            start: '7:00 AM',
+            finish: '4:00 PM',
+            island: 'Maui',
+            city: 'Kahului',
+            address: '275 W. Kaahumanu Ave',
+            latitude: '20.881122485000446',
+            longitude: '-156.47201774299972',
+          },
+          {
+            name: 'Molokai Saturday Market',
+            days: ['Saturday'],
+            start: '7:00 AM',
+            finish: '12:00 PM',
+            island: 'Molokai',
+            city: 'Kaunakakai',
+            address: '40 Ala Malama St',
+            latitude: '21.09017112200047',
+            longitude: '-157.02199661599974',
+          },
+          {
+            name: 'Pokai Bay Beach Park',
+            days: ['Friday'],
+            start: '11:00 AM',
+            finish: '11:45 AM',
+            island: 'Oahu',
+            city: 'Waianae',
+            address: '85-037 Pokai Bay Road',
+            latitude: '21.44185853600044',
+            longitude: '-158.18862608699973',
+          },
+          {
+            name: 'Dole Cannery',
+            days: ['Friday'],
+            start: '10:00 AM',
+            finish: '5:00 PM',
+            island: 'Oahu',
+            city: 'Honolulu',
+            address: '650 Iwilei Road',
+            latitude: '21.316240109000432',
+            longitude: '-157.87050896699975',
+          },
+          {
+            name: 'Hawaii Kai Farmers Market',
+            days: ['Saturday'],
+            start: '9:00 AM',
+            finish: '1:00 PM',
+            island: 'Oahu',
+            city: 'Honolulu',
+            address: '511 Lunalilo Home Road',
+            latitude: '21.286071053000455',
+            longitude: '-157.69769887499973',
+          },
+          {
+            name: 'Honolulu Farmers Market',
+            days: ['Wednesday'],
+            start: '4:00 PM',
+            finish: '7:00 PM',
+            island: 'Oahu',
+            city: 'Honolulu',
+            address: '777 Ward Avenue',
+            latitude: '21.29999544000043',
+            longitude: '-157.85177574799974',
+          },
+          {
+            name: 'Kaumualii Street',
+            days: ['Sunday'],
+            start: '8:15 AM',
+            finish: '9:30 AM',
+            island: 'Oahu',
+            city: 'Honolulu',
+            address: '1299 Kaumualii St',
+            latitude: '21.304850435000446',
+            longitude: '-157.85774940299973',
+          },
+          {
+            name: 'Royal Kunia Park-n-Ride',
+            days: ['Sunday'],
+            start: '9:30 AM',
+            finish: '11:00 AM',
+            island: 'Oahu',
+            city: 'Waipahu',
+            address: '94-640 Kupuohi St',
+            latitude: '21.385861307000425',
+            longitude: '-158.00350991899975',
+          },
+          {
+            name: 'Haleiwa Farmers Market',
+            days: ['Monday'],
+            start: '9:00 AM',
+            finish: '1:00 PM',
+            island: 'Oahu',
+            city: 'Haleiwa',
+            address: '59-864 Kamehameha Highway',
+            latitude: '21.304850435000446',
+            longitude: '-157.85774940299973',
+          },
+          {
+            name: 'Salt Lake Municipal Lot',
+            days: ['Tuesday'],
+            start: '11:15 AM',
+            finish: '12:00 PM',
+            island: 'Oahu',
+            city: 'Honolulu',
+            address: '5337 Likini Street',
+            latitude: '21.34594295700043',
+            longitude: '-157.90491127999974',
+          },
+          {
+            name: 'Queens Medical Center',
+            days: ['Wednesday'],
+            start: '10:00 AM',
+            finish: '2:00 PM',
+            island: 'Oahu',
+            city: 'Honolulu',
+            address: '1301 Punchbowl Street',
+            latitude: '21.307250002000444',
+            longitude: '-157.85527925099973',
+          },
+          {
+            name: 'Ewa Beach Community Park',
+            days: ['Friday'],
+            start: '9:00 AM',
+            finish: '10:00 AM',
+            island: 'Oahu',
+            city: 'Ewa Beach',
+            address: '91-955 North Road',
+            latitude: '21.31354031200044',
+            longitude: '-158.00906976999974',
+          },
+          {
+            name: 'Davies Pacific Center',
+            days: ['Tuesday'],
+            start: '10:00 AM',
+            finish: '1:00 PM',
+            island: 'Oahu',
+            city: 'Honolulu',
+            address: '841 Bishop Street',
+            latitude: '21.307830753000474',
+            longitude: '-157.86242916299975',
+          },
+          {
+            name: 'First Insurance Center',
+            days: ['Wednesday'],
+            start: '10:00 AM',
+            finish: '1:00 PM',
+            island: 'Oahu',
+            city: 'Honolulu',
+            address: '1100 Ward Ave',
+            latitude: '21.30303034500048',
+            longitude: '-157.84976903599974',
+          },
+          {
+            name: 'Waianae Farmers Market',
+            days: ['Saturday'],
+            start: '8:30 AM',
+            finish: '11:30 AM',
+            island: 'Oahu',
+            city: 'Waianae',
+            address: '85-251 Farrington Highway',
+            latitude: '21.455940520000468',
+            longitude: '-158.19946945199973',
+          },
+          {
+            name: 'Kalihi Valley District Park',
+            days: ['Saturday'],
+            start: '10:00 AM',
+            finish: '10:45 AM',
+            island: 'Oahu',
+            city: 'Honolulu',
+            address: '1911 Kam IV Road',
+            latitude: '21.304850435000446',
+            longitude: '-157.85774940299973',
+          },
+          {
+            name: 'Ewa Beach Elementary School',
+            days: ['Sunday'],
+            start: '9:00 AM',
+            finish: '1:00 PM',
+            island: 'Oahu',
+            city: 'Ewa Beach',
+            address: '91-740 Papipi Road',
+            latitude: '21.31503419100045',
+            longitude: '-158.01439823499973',
+          },
+          {
+            name: 'Kings Village Shopping Center',
+            days: ['Friday'],
+            start: '4:00 PM',
+            finish: '9:00 PM',
+            island: 'Oahu',
+            city: 'Honolulu',
+            address: '131 Kaiulani Ave.',
+            latitude: '21.316240109000432',
+            longitude: '-157.87050896699975',
+          },
+        ];
+
+        console.log(marketSeeds[0]);
+
 
         window.onload = InitializeMap;
 
@@ -25,28 +254,85 @@
 
         function FindLocaiton() {
           geocoder = new google.maps.Geocoder();
+          let i = 0;
+          let distance = [];
+          let closeMarkets = [];
           InitializeMap();
+
           var address = document.getElementById("addressinput").value;
           geocoder.geocode({ 'address': address }, function (results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
+
+              latitude = results[0].geometry.location.lat();
+              longitude = results[0].geometry.location.lng();
+
+              //loc[0]=results[0].geometry.location.lat();
+              //loc[1]=results[0].geometry.location.lng();
+
+              //alert(loc);
+              console.log(latitude + " right af");
+              console.log(longitude + "right af lng");
+
+
               map.setCenter(results[0].geometry.location);
               var marker = new google.maps.Marker({
                 map: map,
                 position: results[0].geometry.location
               });
+              for (i = 0; i < marketSeeds.length; i++) {
+                let latComp = _.pluck(marketSeeds, 'latitude');
+                let lngComp = _.pluck(marketSeeds, 'longitude');
+                distance.push(getDistanceFromLatLonInKm(latitude, longitude, latComp[i], lngComp[i]))
+                /*const closeMarkets = _.filter(marketSeeds, function (entry) {
+                  return  (getDistanceFromLatLonInKm(latitude, longitude, entry.latitude, entry.longitude) < 11) === true;
+
+                });*/
+
+                /*(const sundaySeeds = _.filter(marketSeeds, function (entry) {
+                  return _.contains(entry.days, 'Sunday') === true;
+                });*/
+
+              }
+
+              for (i = 0; i < distance.length; i++) {
+                if (distance[i] <= 11) {
+                  closeMarkets.push(marketSeeds[i]);
+                }
+              }
+
+              console.log(distance);
+              console.log(closeMarkets);
+
+
+
             }
             else {
               alert("Geocode was not successful for the following reason: " + status);
             }
           });
-
         }
 
         function Button1_onclick() {
           FindLocaiton();
         }
 
-        //window.onload = InitializeMap;
+        function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+          var R = 6371; // Radius of the earth in km
+          var dLat = deg2rad(lat2-lat1);  // deg2rad below
+          var dLon = deg2rad(lon2-lon1);
+          var a =
+              Math.sin(dLat/2) * Math.sin(dLat/2) +
+              Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+              Math.sin(dLon/2) * Math.sin(dLon/2)
+          ;
+          var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+          var d = R * c; // Distance in km
+          return d;
+        }
+
+        function deg2rad(deg) {
+          return deg * (Math.PI/180)
+        }
 
       </script>
     </head>
