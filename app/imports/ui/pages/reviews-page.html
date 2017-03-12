@@ -1,0 +1,36 @@
+<template name="Reviews_Page">
+  <div class="ui container">
+    <div class="ui comments" style="padding:60px; margin-left:100px">
+      <h3 class="ui dividing header">Reviews</h3>
+      {{#if Template.subscriptionsReady}}
+      {{#each review in reviewsList}}
+      <div class="comment">
+        <div class="content">
+          <a class="author">{{review.name}}</a>
+          <div class="metadata">
+            <span class="rating">Rating: {{review.rating}}/10</span>
+          </div>
+          <div class="text">
+            {{review.comment}}
+          </div>
+          <div class="actions">
+            <a class="reply">Reply</a>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+      {{else}}
+      {{> Loading}}
+      {{/if}}
+
+      <form class="ui reply form">
+        <div class="field">
+          <textarea></textarea>
+        </div>
+        <div class="ui red labeled submit icon button">
+          <i class="icon edit"></i> Add Reply
+        </div>
+      </form>
+    </div>
+  </div>
+</template>

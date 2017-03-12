@@ -32,3 +32,7 @@ import './find-by-day-friday.js';
 
 import './find-by-day-saturday.html';
 import './find-by-day-saturday.js';
+
+import './reviews-page.html';
+import './reviews-page.js';
+
